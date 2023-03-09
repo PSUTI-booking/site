@@ -1,12 +1,14 @@
 import React from "react";
-import {
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { VideoCameraOutlined } from "@ant-design/icons";
 import { Layout, Menu, theme } from "antd";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const App: React.FC = () => {
+type Iprops = {
+  children: React.ReactNode;
+};
+
+const LayoutComponent = ({ children }: Iprops) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -60,7 +62,7 @@ const App: React.FC = () => {
                 background: colorBgContainer,
               }}
             >
-              content
+              {children}
             </div>
           </Content>
           <Footer style={{ textAlign: "center" }}>
@@ -72,4 +74,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default LayoutComponent;
