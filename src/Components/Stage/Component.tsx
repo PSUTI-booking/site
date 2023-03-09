@@ -15,6 +15,7 @@ const columns: ColumnsType<DataType> = [
     title: "Кабинет",
     dataIndex: "name",
     key: "name",
+    width: "10%",
     render: (text) => <a>{text}</a>,
   },
   {
@@ -24,7 +25,7 @@ const columns: ColumnsType<DataType> = [
     width: "40%",
   },
   {
-    title: "Пользователь",
+    title: "Преподаватель",
     dataIndex: "user",
     key: "user",
   },
@@ -36,7 +37,7 @@ const columns: ColumnsType<DataType> = [
       <>
         {tags.map((tag) => {
           let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
+          if (tag === "зам. декана") {
             color = "volcano";
           }
           return (
@@ -63,25 +64,23 @@ const data: DataType[] = [
   {
     key: "02-03-03",
     name: "02-03-03",
-    user: "Щелкунов",
-    descr: "Уроки мата",
-    tags: ["loser"],
+    user: "Рассева",
+    descr: "Кабинет зам. декана ПрИ",
+    tags: ["зам. декана"],
   },
   {
-    key: "02-03-04",
-    name: "02-03-04",
+    key: "02-35-01",
+    name: "02-35-01",
+    user: "Стефанова",
+    descr: "Компьютерный класс, 15 компьютеров",
+    tags: ["Преподаватель кафедры УТС"],
+  },
+  {
+    key: "02-02-06",
+    name: "02-02-06",
     user: "Алышев",
-    descr:
-      "Строит Шатл для ракеты, которая захватит всю солнечную систему на С и С++",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "02-03-05",
-    name: "02-03-05",
-    user: "Баженов",
-    descr:
-      "Бизнесс планы по разработке работов для битвы со студентами Аерокоса, и план по развитию ПГУТИ после победы. Так же чтение нотаций Щелкунову про его сквернословие",
-    tags: ["cool", "teacher"],
+    descr: "Лекционная, четная сторона",
+    tags: ["Преподаватель кафедры ПрИ", "Преподаватель кафедры Торс"],
   },
 ];
 
