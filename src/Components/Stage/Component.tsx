@@ -6,29 +6,30 @@ interface DataType {
   key: string;
   name: string;
   user: string;
-  address: string;
+  descr: string;
   tags: string[];
 }
 
 const columns: ColumnsType<DataType> = [
   {
-    title: "Name",
+    title: "Кабинет",
     dataIndex: "name",
     key: "name",
     render: (text) => <a>{text}</a>,
   },
   {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
+    title: "Описание",
+    dataIndex: "descr",
+    key: "descr",
+    width: "40%",
   },
   {
-    title: "User",
+    title: "Пользователь",
     dataIndex: "user",
     key: "user",
   },
   {
-    title: "Tags",
+    title: "Теги",
     key: "tags",
     dataIndex: "tags",
     render: (_, { tags }) => (
@@ -48,12 +49,11 @@ const columns: ColumnsType<DataType> = [
     ),
   },
   {
-    title: "Action",
+    title: "Действие",
     key: "action",
     render: (_, record) => (
       <Space size="middle">
-        <a>Invite {record.user}</a>
-        <a>Delete</a>
+        <a>Пригласить {record.user}</a>
       </Space>
     ),
   },
@@ -64,25 +64,29 @@ const data: DataType[] = [
     key: "02-03-03",
     name: "02-03-03",
     user: "Щелкунов",
-    address: "Уроки мата",
+    descr: "Уроки мата",
     tags: ["loser"],
   },
   {
     key: "02-03-04",
     name: "02-03-04",
     user: "Алышев",
-    address: "Строит Шатл",
+    descr:
+      "Строит Шатл для ракеты, которая захватит всю солнечную систему на С и С++",
     tags: ["cool", "teacher"],
   },
   {
     key: "02-03-05",
     name: "02-03-05",
     user: "Баженов",
-    address: "Бизнесс планы",
+    descr:
+      "Бизнесс планы по разработке работов для битвы со студентами Аерокоса, и план по развитию ПГУТИ после победы. Так же чтение нотаций Щелкунову про его сквернословие",
     tags: ["cool", "teacher"],
   },
 ];
 
-const App: React.FC = () => <Table scroll={{ x: 1300 }} columns={columns} dataSource={data} />;
+const App: React.FC = () => (
+  <Table scroll={{ x: 1300 }} columns={columns} dataSource={data} />
+);
 
 export default App;
