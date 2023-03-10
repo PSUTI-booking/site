@@ -1,13 +1,13 @@
 import React from "react";
-import Layout from "./layout/Component";
-import Stage from "./Components/Stage/Component";
+import { LayoutComponent } from "./layout";
+import { Stage } from "./Components/Stage";
 import "./App.css";
 
 function App() {
   return (
-    <Layout>
+    <LayoutComponent>
       <Stage />
-    </Layout>
+    </LayoutComponent>
   );
 }
 

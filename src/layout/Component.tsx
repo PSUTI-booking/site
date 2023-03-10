@@ -1,6 +1,23 @@
 import React from "react";
 import { VideoCameraOutlined } from "@ant-design/icons";
-import { Layout, Menu, theme } from "antd";
+import { Typography } from "antd";
+import {
+  Input,
+  Layout,
+  Menu,
+  theme,
+  AutoComplete,
+  Button,
+  Cascader,
+  Col,
+  DatePicker,
+  InputNumber,
+  Row,
+  Select,
+  Tooltip,
+} from "antd";
+
+import styles from "./styles.module.scss";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -8,14 +25,24 @@ type Iprops = {
   children: React.ReactNode;
 };
 
-const LayoutComponent = ({ children }: Iprops) => {
+export const LayoutComponent = ({ children }: Iprops) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
   return (
     <>
-      <Header style={{ padding: 0, background: colorBgContainer }}>Logo</Header>
+      <Header
+        className={styles.header}
+        style={{ padding: 25, background: colorBgContainer }}
+      >
+        <h3 className={styles.title}>PSUTI-booking</h3>
+        <Input.Search
+          enterButton
+          style={{ width: "20%" }}
+          placeholder="поиск"
+        />
+      </Header>
       <Layout style={{ height: "100%" }}>
         <Sider
           theme="light"
@@ -32,7 +59,7 @@ const LayoutComponent = ({ children }: Iprops) => {
           <Menu
             theme="light"
             mode="inline"
-            defaultSelectedKeys={["4"]}
+            defaultSelectedKeys={["2"]}
             items={[
               VideoCameraOutlined,
               VideoCameraOutlined,
@@ -66,12 +93,10 @@ const LayoutComponent = ({ children }: Iprops) => {
             </div>
           </Content>
           <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2023 Created by Ant UED
+            ©2023 Created by A&O Systems
           </Footer>
         </Layout>
       </Layout>
     </>
   );
 };
-
-export default LayoutComponent;
