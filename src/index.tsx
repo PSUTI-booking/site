@@ -2,10 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { LayoutComponent } from "./layout";
 import ErrorPage from "./pages/ErrorPage";
 import App from "./App";
 
 import "./index.css";
+import FloorPage, { loader } from "./pages/FloorPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -16,6 +18,15 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "floor/:floorId",
+    element: (
+      <LayoutComponent>
+        <FloorPage />
+      </LayoutComponent>
+    ),
+    loader: loader,
   },
 ]);
 

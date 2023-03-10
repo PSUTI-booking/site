@@ -3,7 +3,21 @@
   align-items: center;
 }
 
+.search {
+  width: 300px;
+}
+
 .title {
   margin: 0;
-  margin-right: 180px;
+  margin-right: 10%;
+}
+
+@media (max-width: 570px) {
+  .title {
+    display: none;
+  }
+
+  .search {
+    width: 100%;
+  }
 }

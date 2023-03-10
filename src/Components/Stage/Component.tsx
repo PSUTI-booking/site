@@ -1,5 +1,5 @@
 import React from "react";
-import { Space, Table, Tag } from "antd";
+import { Button, Space, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 
 interface DataType {
@@ -54,7 +54,7 @@ const columns: ColumnsType<DataType> = [
     key: "action",
     render: (_, record) => (
       <Space size="middle">
-        <a>Пригласить {record.user}</a>
+        <Button type="primary">Подробнее</Button>
       </Space>
     ),
   },

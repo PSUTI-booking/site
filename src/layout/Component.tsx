@@ -1,21 +1,7 @@
 import React from "react";
 import { VideoCameraOutlined } from "@ant-design/icons";
-import { Typography } from "antd";
-import {
-  Input,
-  Layout,
-  Menu,
-  theme,
-  AutoComplete,
-  Button,
-  Cascader,
-  Col,
-  DatePicker,
-  InputNumber,
-  Row,
-  Select,
-  Tooltip,
-} from "antd";
+import { Input, Layout, Menu, theme } from "antd";
+import { Link } from "react-router-dom";
 
 import styles from "./styles.module.scss";
 
@@ -34,12 +20,14 @@ export const LayoutComponent = ({ children }: Iprops) => {
     <>
       <Header
         className={styles.header}
-        style={{ padding: 25, background: colorBgContainer }}
+        style={{ background: colorBgContainer }}
       >
-        <h3 className={styles.title}>PSUTI-booking</h3>
+        <h3 className={styles.title}>
+          <Link to="/">PSUTI-booking</Link>
+        </h3>
         <Input.Search
           enterButton
-          style={{ width: "20%" }}
+          className={styles.search}
           placeholder="поиск"
         />
       </Header>
@@ -59,7 +47,6 @@ export const LayoutComponent = ({ children }: Iprops) => {
           <Menu
             theme="light"
             mode="inline"
-            defaultSelectedKeys={["2"]}
             items={[
               VideoCameraOutlined,
               VideoCameraOutlined,
@@ -76,7 +63,7 @@ export const LayoutComponent = ({ children }: Iprops) => {
             ].map((icon, index) => ({
               key: String(index + 1),
               icon: React.createElement(icon),
-              label: `${index + 1} Этаж`,
+              label: <Link to={`/floor/${index + 1}`}>{index + 1} Этаж </Link>,
             }))}
           />
         </Sider>
