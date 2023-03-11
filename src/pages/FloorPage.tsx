@@ -11,9 +11,9 @@ export default function FloorPage() {
   const floorId = useLoaderData();
 
   return (
-    <div>
+    <>
       <Typography.Title level={3}>{String(floorId)} Этаж</Typography.Title>
       <Stage />
-    </div>
+    </>
   );
 }

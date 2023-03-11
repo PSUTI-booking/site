@@ -1,6 +1,6 @@
 import React from "react";
-import { VideoCameraOutlined } from "@ant-design/icons";
-import { Input, Layout, Menu, theme } from "antd";
+import { VideoCameraOutlined, AppstoreOutlined } from "@ant-design/icons";
+import { type MenuProps, Input, Layout, Menu, theme } from "antd";
 import { Link } from "react-router-dom";
 
 import styles from "./styles.module.scss";
@@ -10,6 +10,54 @@ const { Header, Content, Footer, Sider } = Layout;
 type Iprops = {
   children: React.ReactNode;
 };
+
+type MenuItem = Required<MenuProps>["items"][number];
+
+function getItem(
+  label: React.ReactNode,
+  key: React.Key,
+  icon?: React.ReactNode,
+  children?: MenuItem[],
+  type?: "group"
+): MenuItem {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  } as MenuItem;
+}
+
+let id = 0;
+let cafedra = 0;
+
+const items: MenuProps["items"] = [
+  getItem("Преподаватели", "sub1", <VideoCameraOutlined />, [
+    getItem(
+      <Link to={`/cafedra/${++cafedra}`}>Кафедра ТОРС</Link>,
+      "Кафедра 1"
+    ),
+    getItem(<Link to={`/cafedra/${++cafedra}`}>Кафедра ПрИ</Link>, "Кафедра 2"),
+  ]),
+
+  getItem("Этажи", "sub2", <AppstoreOutlined />, [
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+    getItem(<Link to={`/floor/${++id}`}>Этаж {id}</Link>, `Этаж ${id}`),
+  ]),
+];
 
 export const LayoutComponent = ({ children }: Iprops) => {
   const {
@@ -44,28 +92,7 @@ export const LayoutComponent = ({ children }: Iprops) => {
           }}
         >
           <div className="logo" />
-          <Menu
-            theme="light"
-            mode="inline"
-            items={[
-              VideoCameraOutlined,
-              VideoCameraOutlined,
-              VideoCameraOutlined,
-              VideoCameraOutlined,
-              VideoCameraOutlined,
-              VideoCameraOutlined,
-              VideoCameraOutlined,
-              VideoCameraOutlined,
-              VideoCameraOutlined,
-              VideoCameraOutlined,
-              VideoCameraOutlined,
-              VideoCameraOutlined,
-            ].map((icon, index) => ({
-              key: String(index + 1),
-              icon: React.createElement(icon),
-              label: <Link to={`/floor/${index + 1}`}>{index + 1} Этаж </Link>,
-            }))}
-          />
+          <Menu theme="light" mode="inline" items={items} />
         </Sider>
         <Layout>
           <Content style={{ margin: "24px 16px 0" }}>

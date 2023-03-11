@@ -8,6 +8,7 @@ import App from "./App";
 
 import "./index.css";
 import FloorPage, { loader } from "./pages/FloorPage";
+import UsersPage from "./pages/UsersPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -16,7 +17,11 @@ const root = ReactDOM.createRoot(
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <LayoutComponent>
+        <App />
+      </LayoutComponent>
+    ),
     errorElement: <ErrorPage />,
   },
   {
@@ -27,6 +32,14 @@ const router = createBrowserRouter([
       </LayoutComponent>
     ),
     loader: loader,
+  },
+  {
+    path: "cafedra/:cafedraId",
+    element: (
+      <LayoutComponent>
+        <UsersPage />
+      </LayoutComponent>
+    ),
   },
 ]);
 
