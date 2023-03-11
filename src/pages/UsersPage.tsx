@@ -4,7 +4,7 @@ import { User } from "../Components/User";
 
 export default function UsersPage() {
   return (
-    <Space size={[8, 16]} wrap>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
       <User />
       <User />
       <User />
@@ -15,6 +15,6 @@ export default function UsersPage() {
       <User />
       <User />
       <User />
-    </Space>
+    </div>
   );
 }

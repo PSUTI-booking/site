@@ -1,0 +1,15 @@
+@media (max-width: 1150px) {
+  .card {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .card {
+    max-width: 100%;
+  }
+  .title {
+    line-break: auto;
+    word-wrap: break-word;
+  }
+}
