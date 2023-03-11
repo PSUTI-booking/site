@@ -9,6 +9,7 @@ import App from "./App";
 import "./index.css";
 import FloorPage, { loader } from "./pages/FloorPage";
 import UsersPage from "./pages/UsersPage";
+import { UserPage } from "./pages/UserPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -38,6 +39,14 @@ const router = createBrowserRouter([
     element: (
       <LayoutComponent>
         <UsersPage />
+      </LayoutComponent>
+    ),
+  },
+  {
+    path: "user/:userId",
+    element: (
+      <LayoutComponent>
+        <UserPage />
       </LayoutComponent>
     ),
   },

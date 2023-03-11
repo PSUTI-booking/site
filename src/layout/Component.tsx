@@ -95,17 +95,16 @@ export const LayoutComponent = ({ children }: Iprops) => {
           <Menu theme="light" mode="inline" items={items} />
         </Sider>
         <Layout>
-          <Content style={{ margin: "24px 16px 0" }}>
+          <div style={{ margin: "24px" }}>
             <div
               style={{
                 padding: 24,
-                minHeight: 360,
-                background: colorBgContainer,
+                background: "white",
               }}
             >
               {children}
             </div>
-          </Content>
+          </div>
           <Footer style={{ textAlign: "center" }}>
             ©2023 Created by A&O Systems
           </Footer>
