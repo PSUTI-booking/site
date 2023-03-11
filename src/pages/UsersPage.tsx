@@ -4,7 +4,7 @@ import { Avatar, Card, Tag, Space } from "antd";
 export default function UsersPage() {
   return (
     <div>
-      <Card style={{ width: 400, marginTop: 16 }}>
+      <Card style={{ width: 300, marginTop: 16 }}>
         <Card.Meta
           avatar={<Avatar src="https://joesch.moe/api/v1/random?key=1" />}
           title="Алышев Юрий Витальевич"
